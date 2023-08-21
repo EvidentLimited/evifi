@@ -28,4 +28,4 @@ Route.group(() => {
   // Apply the middleware to specific routes
   Route.post('/tokenize', 'ChatgptController.askChatgpt')
 }).prefix('evifi')
-.middleware(['CheckWebsiteAccess'])
+// .middleware(['CheckWebsiteAccess'])
