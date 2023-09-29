@@ -12,9 +12,9 @@ export class ChatgptService implements ChatgptContract {
   public async askChatgpt(prompt: string) {
     try {
       // ChatGPT Response Format
-      const responseFormat = `Use words - Integration, Token Generation, Value Proposition. \
+      const responseFormat = `Use words - Integration, Token Generation, Value Proposition,. \
          I want the content in format: {"Integration": ,"Token Generation": , "Value Proposition": }. \
-         Also make it Short and precise.`
+         Also make it concise.`
 
       // make the prompt
       const fullPrompt = `I want to tokenize ${prompt}. ${responseFormat}`
