@@ -30,12 +30,10 @@ class ChatgptsController {
       const filter = new Filter();
       const isBadWord = filter.isProfane(data.prompt);
       if (isBadWord) {
-        return res
-          .status(400)
-          .json({
-            code: 'OFFESIVE_WORD',
-            message: 'Offensive word cannot be tokenized',
-          });
+        return res.status(400).json({
+          code: 'OFFESIVE_WORD',
+          message: 'Offensive word cannot be tokenized',
+        });
       }
 
       // send the prompt to service
@@ -50,6 +48,7 @@ class ChatgptsController {
 
       return res.status(200).json(safeJSON(chatgptResponse));
     } catch (e) {
+      console.log(e);
       return res.status(500).json({ error: e.message });
     }
   }
