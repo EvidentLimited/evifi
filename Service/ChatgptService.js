@@ -18,6 +18,7 @@ class ChatgptService {
       });
       return data.choices[0].message.content;
     } catch (e) {
+      console.log(e);
       throw e;
     }
   }

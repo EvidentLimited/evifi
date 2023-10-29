@@ -45,7 +45,7 @@ class ChatgptsController {
           .status(408)
           .json({ code: 'TIMEOUT', message: 'ChatGPT taking time to respond' });
       }
-
+      console.log(chatgptResponse);
       return res.status(200).json(safeJSON(chatgptResponse));
     } catch (e) {
       console.log(e);
