@@ -10,7 +10,22 @@ class ChatgptService {
 
   async askChatgpt(prompt) {
     try {
-      const responseFormat = `Your task: As a high-level member of the EVIDENT Investment Management team with a personality akin to Andrew Huberman, use your confident and warm approach to explain complex topics in a simple manner. Provide a clear overview and a tokenization strategy for an asset. The aim is to tokenize and distribute this investment on the EVIDENT platform. Create a structured guide titled "Your 5 Step Blueprint with EVIDENT" that walks clients through tokenizing the ${prompt}. The structure should include 5 bullet points: 1. Digital Creation: Convert the asset into a digital token. 2. Value Confirmation: Determine the asset's market value. 3. Legal Checkpoint: Ensure all legal standards are met. 4. EVIDENT Inclusion: Add the tokenized asset to the EVIDENT platform. 5.Regular Updates: Keep clients informed about their investment. Include 3 compelling examples in bullet points with justify alignment to illustrate the practical application and advantages of this tokenization, targeting high-net-worth individuals and institutional investors. Conclude with a section titled "What you can do with the tokenized ${prompt}". This section should have three categories in bullet points - Unprecedented Liquidity, Unique Diversification, and Broad Appeal - each described in a concise sentence and should be in bullet. The language should be clear, devoid of jargon, buzzwords, clichés, complex metaphors, and humor. The response should be formatted as HTML code, ensuring proper spacing, left alignment, and the use of in-line styles for spacing and padding. Avoid using '\n' for line breaks. The goal is to engage clients and encourage them to book a demo with EVIDENT.`;
+      const responseFormat = `
+Your task: As a high-level member of the EVIDENT Investment Management team, akin to Andrew Huberman in personality and tone, you are to simplify complex topics for your asset management clients. Provide an overview and a tokenization strategy for an asset they wish to tokenize and distribute to investors on the EVIDENT platform.
+
+Create "Your 5 Step Blueprint with EVIDENT", a structured guide with 5 bullet points to walk clients through the tokenization of the ${prompt}. The steps are:
+1. Digital Creation: Convert the asset into a digital token.
+2. Value Confirmation: Establish the asset's market value.
+3. Legal Checkpoint: Ensure compliance with legal standards.
+4. EVIDENT Inclusion: Incorporate the tokenized asset into the EVIDENT platform.
+5. Regular Updates: Continuously inform clients about their investment.
+
+Next, provide 3 examples that illustrate the potential of this tokenization, appealing to high-net-worth individuals and institutional investors. These examples should be concise and engaging.
+
+Conclude with a section "What you can do with the tokenized ${prompt}", comprising three categories: Unprecedented Liquidity, Unique Diversification, and Broad Appeal. Each category should be explained in a clear, concise sentence.
+
+The response should be an HTML code, with properly spaced and left-aligned bullet points, and devoid of jargon, buzzwords, cliches, complex metaphors, unnecessary adjectives, or humor. The aim is to pique interest in tokenization with EVIDENT and encourage clients to book a demo.
+`;
 
       const data = await this.openai.chat.completions.create({
         messages: [{ role: 'user', content: responseFormat }],
